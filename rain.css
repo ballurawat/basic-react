@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color : red;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #222;
+
+}
+
+
+.container #para{
+    height: 50px;
+    width: 200px;
+    font-size: 3rem;
+    
+}
+
+
+
+
+.container{
+    top: 100px;
+    position: relative;
+    height: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    animation: animateColor 5s linear infinite;
+}
+@keyframes animateColor {
+    0%{
+        filter: hue-rotate(0deg);
+    }
+    100%{
+        filter: hue-rotate(360deg);
+    }
+}
+
+.container .cloud{
+    position: relative;
+    width: 400px;
+    z-index: 100;
+    filter: drop-shadow(0 0 35px var(--color));
+}
+
+.container .cloud::before{
+    content: '';
+    position: absolute;
+    height: 110px;
+    width: 130%;
+    top: -115px;
+    left: 50%;
+    background: var(--color);
+    transform: translateX(-50%);
+    border-radius: 100px;
+
+}
+.container .cloud::after{
+    content: '';
+    position: absolute;
+    top: -180px;
+    width: 270px;
+    height: 160px;
+    background: var(--color);
+    box-shadow: 120px -30px 0 40px var(--color);
+    border-radius: 50%;
+
+}
+.container .cloud .drop{
+    position: absolute;
+    height: 20px;
+    top: -15px;
+    line-height: 20px;
+    color: var(--color);
+    transform-origin: bottom;
+    animation: animate 2s linear infinite;
+
+}
+@keyframes animate {
+    0%{
+        transform: translateY(0) scaleY(0);
+        transform-origin: top;
+    }
+    10%{
+        transform: translateY(0) scaleY(0);
+        transform-origin: top;
+    }
+    20%{
+        transform: translateY(0) scaleY(0.25);
+        transform-origin: top;
+    }
+    70%{
+        transform: translateY(300px) scaleY(1);
+        transform-origin: bottom;
+    }
+    80%{
+        transform: translateY(300px) scaleY(1);
+        transform-origin: bottom;
+    }
+    100%{
+        transform: translateY(360) scaleY(1);
+        transform-origin: bottom;
+        
+
+    }
+}
